@@ -4,80 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دخانكو | Dokanko Store</title>
+    <!-- أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #121212; color: #f1f1f1; }
-        
-        header { background: linear-gradient(135deg, #1e1e1e, #2a2a2a); border-bottom: 2px solid #ff9800; padding: 30px 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        header h1 { font-size: 2.5rem; color: #ff9800; letter-spacing: 1px; }
-        header p { opacity: 0.85; margin-top: 5px; color: #ccc; }
+        body { background-color: #0f0f0f; color: #f1f1f1; scroll-behavior: smooth; }
+
+        /* شاشة الترحيب الفخمة */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(15, 15, 15, 1)), url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200') center/cover no-repeat;
+            padding: 60px 20px 40px;
+            text-align: center;
+            border-bottom: 2px solid #ff9800;
+        }
+        .hero h1 { font-size: 3rem; color: #ff9800; text-shadow: 0 0 15px rgba(255, 152, 0, 0.4); margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: #ddd; max-width: 600px; margin: 0 auto 20px; }
+        .hero .badge { display: inline-block; background: rgba(255, 152, 0, 0.15); color: #ff9800; border: 1px solid #ff9800; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
 
-        /* أدوات التحكم */
-        .controls { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; align-items: center; }
-        .search-input { width: 100%; max-width: 500px; padding: 12px 20px; font-size: 1rem; background-color: #1e1e1e; color: #fff; border: 1px solid #333; border-radius: 25px; outline: none; transition: border-color 0.3s; }
-        .search-input:focus { border-color: #ff9800; }
+        /* أدوات التحكم والتصنيف */
+        .controls { display: flex; flex-direction: column; gap: 15px; margin-bottom: 35px; align-items: center; }
+        .search-input { width: 100%; max-width: 500px; padding: 14px 22px; font-size: 1rem; background-color: #1a1a1a; color: #fff; border: 1px solid #333; border-radius: 30px; outline: none; transition: all 0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
+        .search-input:focus { border-color: #ff9800; box-shadow: 0 0 10px rgba(255, 152, 0, 0.3); }
 
-        .categories { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-        .cat-btn { background: #252525; border: 1px solid #444; padding: 8px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: all 0.2s; color: #ccc; }
-        .cat-btn.active, .cat-btn:hover { background: #ff9800; color: #000; border-color: #ff9800; }
+        .categories { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+        .cat-btn { background: #1f1f1f; border: 1px solid #333; padding: 10px 22px; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; color: #bbb; }
+        .cat-btn.active, .cat-btn:hover { background: #ff9800; color: #000; border-color: #ff9800; box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3); }
 
         /* شبكة المنتجات */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; min-height: 200px; }
-        .card { background: #1e1e1e; border: 1px solid #2c2c2c; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.2s, border-color 0.2s; text-align: center; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
-        .card:hover { transform: translateY(-5px); border-color: #ff9800; }
-        .card img { width: 100%; height: 220px; object-fit: contain; border-radius: 8px; margin-bottom: 15px; background: #181818; }
-        .card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; }
-        .card .price { font-size: 1.3rem; font-weight: bold; color: #ff9800; margin-bottom: 15px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; min-height: 200px; }
+        .card { background: #181818; border: 1px solid #282828; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.4); transition: all 0.3s; text-align: center; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+        .card:hover { transform: translateY(-7px); border-color: #ff9800; box-shadow: 0 10px 20px rgba(255, 152, 0, 0.2); }
+        .card img { width: 100%; height: 220px; object-fit: contain; border-radius: 10px; margin-bottom: 15px; background: #121212; }
+        .card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 8px; }
+        .card .price { font-size: 1.35rem; font-weight: bold; color: #ff9800; margin-bottom: 15px; }
         
-        .btn-buy { display: flex; align-items: center; justify-content: center; gap: 8px; background-color: #25D366; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; width: 100%; transition: background 0.2s; }
+        .btn-buy { display: flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; text-decoration: none; padding: 12px 20px; border-radius: 10px; font-weight: bold; width: 100%; transition: background 0.2s; font-size: 1.05rem; }
         .btn-buy:hover { background-color: #1eb956; }
         
+        /* زر الواتساب العائم */
+        .float-wa { position: fixed; bottom: 25px; left: 25px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s; }
+        .float-wa:hover { transform: scale(1.1); }
+
         .no-products { text-align: center; color: #777; width: 100%; padding: 40px 0; font-size: 1.1rem; grid-column: 1 / -1; }
     </style>
 </head>
 <body>
 
-    <header>
+    <!-- الواجهة الترحيبية -->
+    <section class="hero">
+        <span class="badge">🔥 أهلاً بكم في المتجر الرسمي</span>
         <h1>دخانكو | Dokanko</h1>
-        <p>جميع مستلزمات الدخان والفيب والقهوة والإكسسوارات</p>
-    </header>
+        <p>وجهتك الأولى لأجود أنواع القهوة، الأراجيل والمعسل، الفيب والسحبات وإكسسواراتها</p>
+    </section>
 
     <div class="container">
         
-        <!-- قسم البحث والتصنيفات -->
+        <!-- أدوات البحث والتصنيف -->
         <div class="controls">
-            <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن منتج...">
+            <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن منتجك المفضل...">
             
             <div class="categories">
-                <button class="cat-btn active" onclick="filterCategory('shisha', this)">أراجيل ومعسل</button>
+                <button class="cat-btn active" onclick="filterCategory('coffee', this)">القهوة</button>
+                <button class="cat-btn" onclick="filterCategory('shisha', this)">أراجيل ومعسل</button>
                 <button class="cat-btn" onclick="filterCategory('vape', this)">فيب وسحبات</button>
                 <button class="cat-btn" onclick="filterCategory('accessories', this)">إكسسوارات وولاعات</button>
-                <button class="cat-btn" onclick="filterCategory('coffee', this)">القهوة</button>
             </div>
         </div>
 
         <!-- شبكة المنتجات -->
         <div class="products-grid" id="productsGrid">
 
-            <!-- منتج قهوة عيليت (الجديد والمضبوط) -->
+            <!-- منتج قهوة عيليت -->
             <div class="card" data-category="coffee">
                 <img src="https://i.postimg.cc/Wz7fn3k3/785281561-2439896006507217-544335959369034386-n.jpg" alt="قهوة عيليت">
                 <h3>قهوة عيليت</h3>
                 <div class="price">400 ₪</div>
-                <a href="https://wa.me/?text=أرغب%20في%20طلب%20قهوة%20عيليت" target="_blank" class="btn-buy">طلب عبر الواتساب</a>
+                <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20قهوة%20عيليت" target="_blank" class="btn-buy">
+                    <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
+                </a>
             </div>
 
         </div>
 
     </div>
 
+    <!-- زر الواتساب العائم -->
+    <a href="https://wa.me/970566228688?text=مرحباً%20دخانكو،%20لدي%20استفسار" class="float-wa" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- كود الصوت والفلترة -->
     <script>
-        let currentCategory = 'shisha';
+        let currentCategory = 'coffee';
+        let hasPlayedAudio = false;
+
+        // تشغيل صوت الترحيب عند أول لمسة أو ضغطة للزبون
+        function playWelcomeAudio() {
+            if (!hasPlayedAudio) {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5 tone
+                osc.frequency.exponentialRampToValueAtTime(659.25, audioCtx.currentTime + 0.3); // E5 tone
+                
+                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.5);
+                hasPlayedAudio = true;
+            }
+        }
+
+        document.addEventListener('click', playWelcomeAudio);
 
         document.addEventListener("DOMContentLoaded", function() {
-            filterCategory('shisha', document.querySelectorAll('.cat-btn')[0]);
+            filterCategory('coffee', document.querySelectorAll('.cat-btn')[0]);
         });
 
         document.getElementById('searchInput').addEventListener('input', function(e) {
@@ -128,10 +177,3 @@
     </script>
 </body>
 </html>
-<div class="card" data-category="ااراجيل ومعسل">
-    <img src="https://i.postimg.cc/59kzHJGF/783508035-2259772747897545-5209994365998220811-n.jpg" alt="اسم المنتج">
-    <h3>اسم المنتج</h3>
-    <div class="price">السعر ₪</div>
-    <a href="https://wa.me/970566228688
-?text=أرغب%20في%20طلب%20معسل نخلة نفل " target="_blank" class="btn-buy">طلب عبر الواتساب</a>
-</div>
