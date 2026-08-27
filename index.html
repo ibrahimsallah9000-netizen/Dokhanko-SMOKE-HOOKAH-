@@ -46,6 +46,7 @@
 
     <div class="container">
         
+        <!-- قسم البحث والتصنيفات -->
         <div class="controls">
             <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن منتج...">
             
@@ -57,8 +58,18 @@
             </div>
         </div>
 
+        <!-- شبكة المنتجات -->
         <div class="products-grid" id="productsGrid">
+
+            <!-- منتج قهوة عيليت (الجديد والمضبوط) -->
+            <div class="card" data-category="coffee">
+                <img src="https://i.postimg.cc/Wz7fn3k3/785281561-2439896006507217-544335959369034386-n.jpg" alt="قهوة عيليت">
+                <h3>قهوة عيليت</h3>
+                <div class="price">400 ₪</div>
+                <a href="https://wa.me/?text=أرغب%20في%20طلب%20قهوة%20عيليت" target="_blank" class="btn-buy">طلب عبر الواتساب</a>
             </div>
+
+        </div>
 
     </div>
 
@@ -101,7 +112,6 @@
                 }
             });
 
-            // إظهار رسالة عند عدم وجود منتجات في القسم
             let noProdMsg = document.getElementById('noProductsMsg');
             if (visibleCount === 0) {
                 if (!noProdMsg) {
@@ -117,10 +127,4 @@
         }
     </script>
 </body>
-</div>
-<div class="card" data-category="coffee">
-    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500" alt="قهوة عيليت">
-    <h3>قهوة عيليت</h3>
-    <div class="price">400 ₪</div>
-    <a href="https://wa.me/?text=أرغب%20في%20طلب%20قهوة%20عيليت" target="_blank" class="btn-buy">طلب عبر الواتساب</a>
-</div>
+</html>
