@@ -8,39 +8,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #0f0f0f; color: #f1f1f1; scroll-behavior: smooth; }
+        body { background-color: #0b0b0b; color: #f1f1f1; scroll-behavior: smooth; }
 
-        /* شاشة الترحيب الفخمة */
+        /* شريط التوصيل العلوي */
+        .delivery-bar {
+            background: linear-gradient(90deg, #ff9800, #e65100);
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 10px rgba(255, 152, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* شاشة الترحيب */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(15, 15, 15, 1)), url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200') center/cover no-repeat;
-            padding: 60px 20px 40px;
+            background: linear-gradient(rgba(0, 0, 0, 0.82), rgba(11, 11, 11, 1)), url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200') center/cover no-repeat;
+            padding: 50px 20px 35px;
             text-align: center;
             border-bottom: 2px solid #ff9800;
         }
-        .hero h1 { font-size: 3rem; color: #ff9800; text-shadow: 0 0 15px rgba(255, 152, 0, 0.4); margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; color: #ddd; max-width: 600px; margin: 0 auto 20px; }
-        .hero .badge { display: inline-block; background: rgba(255, 152, 0, 0.15); color: #ff9800; border: 1px solid #ff9800; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
+        .hero h1 { font-size: 3rem; color: #ff9800; text-shadow: 0 0 20px rgba(255, 152, 0, 0.5); margin-bottom: 10px; font-weight: 800; }
+        .hero p { font-size: 1.15rem; color: #ddd; max-width: 650px; margin: 0 auto 18px; line-height: 1.6; }
+        .hero .badge { display: inline-block; background: rgba(255, 152, 0, 0.15); color: #ff9800; border: 1px solid #ff9800; padding: 6px 18px; border-radius: 20px; font-size: 0.88rem; font-weight: bold; }
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
 
         /* أدوات التحكم والتصنيف */
         .controls { display: flex; flex-direction: column; gap: 15px; margin-bottom: 35px; align-items: center; }
-        .search-input { width: 100%; max-width: 500px; padding: 14px 22px; font-size: 1rem; background-color: #1a1a1a; color: #fff; border: 1px solid #333; border-radius: 30px; outline: none; transition: all 0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
-        .search-input:focus { border-color: #ff9800; box-shadow: 0 0 10px rgba(255, 152, 0, 0.3); }
+        .search-input { width: 100%; max-width: 500px; padding: 14px 22px; font-size: 1rem; background-color: #161616; color: #fff; border: 1px solid #333; border-radius: 30px; outline: none; transition: all 0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
+        .search-input:focus { border-color: #ff9800; box-shadow: 0 0 12px rgba(255, 152, 0, 0.4); }
 
-        .categories { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-        .cat-btn { background: #1f1f1f; border: 1px solid #333; padding: 10px 22px; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; color: #bbb; }
-        .cat-btn.active, .cat-btn:hover { background: #ff9800; color: #000; border-color: #ff9800; box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3); }
+        .categories { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .cat-btn { background: #1a1a1a; border: 1px solid #333; padding: 10px 22px; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; color: #bbb; }
+        .cat-btn.active, .cat-btn:hover { background: #ff9800; color: #000; border-color: #ff9800; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4); }
 
         /* شبكة المنتجات */
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; min-height: 200px; }
-        .card { background: #181818; border: 1px solid #282828; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.4); transition: all 0.3s; text-align: center; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
-        .card:hover { transform: translateY(-7px); border-color: #ff9800; box-shadow: 0 10px 20px rgba(255, 152, 0, 0.2); }
-        .card img { width: 100%; height: 220px; object-fit: contain; border-radius: 10px; margin-bottom: 15px; background: #121212; }
-        .card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 8px; }
-        .card .price { font-size: 1.35rem; font-weight: bold; color: #ff9800; margin-bottom: 15px; }
+        .card { background: #161616; border: 1px solid #282828; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.5); transition: all 0.3s; text-align: center; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+        .card:hover { transform: translateY(-7px); border-color: #ff9800; box-shadow: 0 10px 25px rgba(255, 152, 0, 0.25); }
+        .card img { width: 100%; height: 220px; object-fit: contain; border-radius: 12px; margin-bottom: 15px; background: #0f0f0f; }
+        .card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 6px; }
+        .card .sub-desc { color: #aaa; font-size: 0.85rem; margin-bottom: 12px; }
+        .card .price { font-size: 1.4rem; font-weight: bold; color: #ff9800; margin-bottom: 15px; }
         
-        .btn-buy { display: flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; text-decoration: none; padding: 12px 20px; border-radius: 10px; font-weight: bold; width: 100%; transition: background 0.2s; font-size: 1.05rem; }
+        .btn-buy { display: flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; text-decoration: none; padding: 12px 18px; border-radius: 10px; font-weight: bold; width: 100%; transition: background 0.2s; font-size: 1rem; }
         .btn-buy:hover { background-color: #1eb956; }
         
         /* زر الواتساب العائم */
@@ -52,11 +68,16 @@
 </head>
 <body>
 
+    <!-- شريط التوصيل لكافة المناطق -->
+    <div class="delivery-bar">
+        <i class="fa-solid fa-truck-fast"></i> التوصيل متوفر لكل الخارطة | توصيل سريع ومباشر
+    </div>
+
     <!-- الواجهة الترحيبية -->
     <section class="hero">
         <span class="badge">🔥 أهلاً بكم في المتجر الرسمي</span>
         <h1>دخانكو | Dokanko</h1>
-        <p>وجهتك الأولى لأجود أنواع القهوة، الأراجيل والمعسل، الفيب والسحبات وإكسسواراتها</p>
+        <p>وجهتك الأولى لأجود أنواع القهوة، الأراجيل والمعسل، الفيب وسحبات وإكسسواراتها</p>
     </section>
 
     <div class="container">
@@ -82,7 +103,28 @@
                 <h3>قهوة عيليت</h3>
                 <div class="price">400 ₪</div>
                 <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20قهوة%20عيليت" target="_blank" class="btn-buy">
-                    <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
+                    <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
+                </a>
+            </div>
+
+            <!-- منتج معسل نخلة نفل -->
+            <div class="card" data-category="shisha">
+                <img src="https://i.postimg.cc/59kzHJGF/783508035-2259772747897545-5209994365998220811-n.jpg" alt="معسل نخلة نفل">
+                <h3>معسل نخلة نفل</h3>
+                <div class="price">حسب الطلب</div>
+                <a href="https://wa.me/970566228688?text=أرغب%20في%20الاستفسار%20عن%20معسل%20نخلة%20نفل" target="_blank" class="btn-buy">
+                    <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
+                </a>
+            </div>
+
+            <!-- منتج سحبات أرجيلة إلكترونية -->
+            <div class="card" data-category="vape">
+                <img src="https://i.postimg.cc/8zsN782g/778958244-122174706338823117-8178206532380741774-n.jpg" alt="سحبات أرجيلة إلكترونية 35 ألف سحبة">
+                <h3>سحبات أرجيلة إلكترونية (35 ألف سحبة)</h3>
+                <div class="sub-desc">متوفر أطعمة عديدة للاستفسار عبر الواتساب</div>
+                <div class="price">70 ₪</div>
+                <a href="https://wa.me/970566228688?text=أرغب%20في%20الاستفسار%20عن%20سحبات%20الأرجيلة%20الإلكترونية%2035%20ألف%20سحبة" target="_blank" class="btn-buy">
+                    <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
                 </a>
             </div>
 
@@ -91,16 +133,15 @@
     </div>
 
     <!-- زر الواتساب العائم -->
-    <a href="https://wa.me/970566228688?text=مرحباً%20دخانكو،%20لدي%20استفسار" class="float-wa" target="_blank">
+    <a href="https://wa.me/970566228688?text=مرحباً%20دخانكو،%20لدي%20استفسار%20عن%20التوصيل" class="float-wa" target="_blank" title="تواصل معنا">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- كود الصوت والفلترة -->
+    <!-- البرمجة والصوت -->
     <script>
         let currentCategory = 'coffee';
         let hasPlayedAudio = false;
 
-        // تشغيل صوت الترحيب عند أول لمسة أو ضغطة للزبون
         function playWelcomeAudio() {
             if (!hasPlayedAudio) {
                 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -108,8 +149,8 @@
                 const gain = audioCtx.createGain();
                 
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5 tone
-                osc.frequency.exponentialRampToValueAtTime(659.25, audioCtx.currentTime + 0.3); // E5 tone
+                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); 
+                osc.frequency.exponentialRampToValueAtTime(659.25, audioCtx.currentTime + 0.3); 
                 
                 gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
@@ -177,22 +218,3 @@
     </script>
 </body>
 </html>
-<!-- منتج معسل نخلة نفل -->
-<div class="card" data-category="shisha">
-    <img src="https://i.postimg.cc/59kzHJGF/783508035-2259772747897545-5209994365998220811-n.jpg" alt="معسل نخلة نفل">
-    <h3>معسل نخلة نفل</h3>
-    <div class="price">حسب الطلب</div>
-    <a href="https://wa.me/970566228688?text=أرغب%20في%20الاستفسار%20عن%20معسل%20نخلة%20نفل" target="_blank" class="btn-buy">
-        <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
-    </a>
-</div>
-<!-- منتج سحبات أرجيلة إلكترونية 35 ألف سحبة -->
-<div class="card" data-category="vape">
-    <img src="https://i.postimg.cc/8zsN782g/778958244-122174706338823117-8178206532380741774-n.jpg" alt="سحبات أرجيلة إلكترونية 35 ألف سحبة">
-    <h3>سحبات أرجيلة إلكترونية (35 ألف سحبة)</h3>
-    <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 10px;">متوفر أطعمة عديدة للاستفسار عبر الواتساب</p>
-    <div class="price">70 ₪</div>
-    <a href="https://wa.me/970566228688?text=أرغب%20في%20الاستفسار%20عن%20سحبات%20الأرجيلة%20الإلكترونية%2035%20ألف%20سحبة" target="_blank" class="btn-buy">
-        <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
-    </a>
-</div>
