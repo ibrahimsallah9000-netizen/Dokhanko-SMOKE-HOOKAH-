@@ -25,16 +25,16 @@
             gap: 8px;
         }
 
-        /* شاشة الترحيب */
+        /* شاشة الترحيب والواجهة الرئيسية */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.82), rgba(11, 11, 11, 1)), url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200') center/cover no-repeat;
-            padding: 50px 20px 35px;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(11, 11, 11, 1)), url('https://i.postimg.cc/8zZS6RW7/743289406-834266146285910-2029416295817289182-n.jpg') center/cover no-repeat;
+            padding: 65px 20px 45px;
             text-align: center;
             border-bottom: 2px solid #ff9800;
         }
-        .hero h1 { font-size: 3rem; color: #ff9800; text-shadow: 0 0 20px rgba(255, 152, 0, 0.5); margin-bottom: 10px; font-weight: 800; }
-        .hero p { font-size: 1.15rem; color: #ddd; max-width: 650px; margin: 0 auto 18px; line-height: 1.6; }
-        .hero .badge { display: inline-block; background: rgba(255, 152, 0, 0.15); color: #ff9800; border: 1px solid #ff9800; padding: 6px 18px; border-radius: 20px; font-size: 0.88rem; font-weight: bold; }
+        .hero h1 { font-size: 3rem; color: #ff9800; text-shadow: 0 0 20px rgba(255, 152, 0, 0.6); margin-bottom: 12px; font-weight: 800; }
+        .hero p { font-size: 1.2rem; color: #eee; max-width: 650px; margin: 0 auto 20px; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+        .hero .badge { display: inline-block; background: rgba(255, 152, 0, 0.2); color: #ff9800; border: 1px solid #ff9800; padding: 6px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; backdrop-filter: blur(5px); }
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
 
@@ -47,12 +47,11 @@
         .cat-btn { background: #1a1a1a; border: 1px solid #333; padding: 10px 22px; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; color: #bbb; }
         .cat-btn.active, .cat-btn:hover { background: #ff9800; color: #000; border-color: #ff9800; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4); }
 
-        /* شبكة المنتجات */
+        /* شبكة المنتجات وتناسق أبعاد الصور */
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; min-height: 200px; }
         .card { background: #161616; border: 1px solid #282828; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.5); transition: all 0.3s; text-align: center; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
         .card:hover { transform: translateY(-7px); border-color: #ff9800; box-shadow: 0 10px 25px rgba(255, 152, 0, 0.25); }
         
-        /* ضبط تناسق أبعاد الصور وحدودها */
         .card img { 
             width: 100%; 
             height: 230px; 
@@ -85,7 +84,7 @@
         <i class="fa-solid fa-truck-fast"></i> التوصيل متوفر لكل الخارطة | توصيل سريع ومباشر
     </div>
 
-    <!-- الواجهة الترحيبية -->
+    <!-- الواجهة الترحيبية بالصورة الجديدة -->
     <section class="hero">
         <span class="badge">🔥 أهلاً بكم في المتجر الرسمي</span>
         <h1>دخانكو | Dokanko</h1>
@@ -129,13 +128,24 @@
                 </a>
             </div>
 
-            <!-- منتج أرجيلة ألماني -->
+            <!-- منتج أرجيلة ألماني (70 شيكل) -->
             <div class="card" data-category="shisha">
                 <img src="https://i.postimg.cc/vTQqh9LM/772036610-122173776176823117-6629942285706106061-n.jpg" alt="أرجيلة ألماني">
                 <h3>أرجيلة ألماني فاخرة</h3>
                 <div class="sub-desc">جودة عالية ومتانة ممتازة</div>
                 <div class="price">70 ₪</div>
                 <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20الأرجيلة%20الألماني%20بسعر%2070%20شيكل" target="_blank" class="btn-buy">
+                    <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
+                </a>
+            </div>
+
+            <!-- منتج أرجيلة ألماني (100 شيكل) -->
+            <div class="card" data-category="shisha">
+                <img src="https://i.postimg.cc/vTQqh9LM/772036610-122173776176823117-6629942285706106061-n.jpg" alt="أرجيلة ألماني">
+                <h3>أرجيلة ألماني فاخرة (موديل خاص)</h3>
+                <div class="sub-desc">جودة عالية ومتانة ممتازة</div>
+                <div class="price">100 ₪</div>
+                <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20الأرجيلة%20الألماني%20بسعر%20100%20شيكل" target="_blank" class="btn-buy">
                     <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
                 </a>
             </div>
@@ -193,7 +203,7 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- البرمجة والصوت -->
+    <!-- البرمجة والفلترة -->
     <script>
         let currentCategory = 'coffee';
         let hasPlayedAudio = false;
@@ -274,13 +284,3 @@
     </script>
 </body>
 </html>
-<!-- منتج أرجيلة ألماني (100 شيكل) -->
-<div class="card" data-category="shisha">
-    <img src="https://i.postimg.cc/vTQqh9LM/772036610-122173776176823117-6629942285706106061-n.jpg" alt="أرجيلة ألماني">
-    <h3>أرجيلة ألماني فاخرة</h3>
-    <div class="sub-desc">جودة عالية ومتانة ممتازة</div>
-    <div class="price">100 ₪</div>
-    <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20الأرجيلة%20الألماني%20بسعر%20100%20شيكل" target="_blank" class="btn-buy">
-        <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
-    </a>
-</div>
