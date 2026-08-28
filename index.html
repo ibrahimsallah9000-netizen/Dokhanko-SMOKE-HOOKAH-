@@ -51,7 +51,19 @@
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; min-height: 200px; }
         .card { background: #161616; border: 1px solid #282828; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.5); transition: all 0.3s; text-align: center; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
         .card:hover { transform: translateY(-7px); border-color: #ff9800; box-shadow: 0 10px 25px rgba(255, 152, 0, 0.25); }
-        .card img { width: 100%; height: 220px; object-fit: contain; border-radius: 12px; margin-bottom: 15px; background: #0f0f0f; }
+        
+        /* ضبط تناسق أبعاد الصور وحدودها */
+        .card img { 
+            width: 100%; 
+            height: 230px; 
+            object-fit: contain; 
+            border-radius: 12px; 
+            margin-bottom: 15px; 
+            background-color: #0f0f0f;
+            border: 1px solid #222;
+            padding: 5px;
+        }
+        
         .card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 6px; }
         .card .sub-desc { color: #aaa; font-size: 0.85rem; margin-bottom: 12px; }
         .card .price { font-size: 1.4rem; font-weight: bold; color: #ff9800; margin-bottom: 15px; }
@@ -117,13 +129,57 @@
                 </a>
             </div>
 
-            <!-- منتج سحبات أرجيلة إلكترونية -->
+            <!-- منتج أرجيلة ألماني -->
+            <div class="card" data-category="shisha">
+                <img src="https://i.postimg.cc/vTQqh9LM/772036610-122173776176823117-6629942285706106061-n.jpg" alt="أرجيلة ألماني">
+                <h3>أرجيلة ألماني فاخرة</h3>
+                <div class="sub-desc">جودة عالية ومتانة ممتازة</div>
+                <div class="price">70 ₪</div>
+                <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20الأرجيلة%20الألماني%20بسعر%2070%20شيكل" target="_blank" class="btn-buy">
+                    <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
+                </a>
+            </div>
+
+            <!-- منتج سحبات أرجيلة إلكترونية 35K -->
             <div class="card" data-category="vape">
                 <img src="https://i.postimg.cc/8zsN782g/778958244-122174706338823117-8178206532380741774-n.jpg" alt="سحبات أرجيلة إلكترونية 35 ألف سحبة">
                 <h3>سحبات أرجيلة إلكترونية (35 ألف سحبة)</h3>
                 <div class="sub-desc">متوفر أطعمة عديدة للاستفسار عبر الواتساب</div>
                 <div class="price">70 ₪</div>
                 <a href="https://wa.me/970566228688?text=أرغب%20في%20الاستفسار%20عن%20سحبات%20الأرجيلة%20الإلكترونية%2035%20ألف%20سحبة" target="_blank" class="btn-buy">
+                    <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
+                </a>
+            </div>
+
+            <!-- منتج سحبات BIG BAR - 1 -->
+            <div class="card" data-category="vape">
+                <img src="https://i.postimg.cc/Fs1hRdkY/780619917-122174706326823117-6017991439337229590-n.jpg" alt="سحبات BIG BAR 55K">
+                <h3>سحبات فيب BIG BAR (55 ألف سحبة)</h3>
+                <div class="sub-desc">متوفر عدة نكهات رائعة للاستفسار عبر الواتساب</div>
+                <div class="price">45 ₪</div>
+                <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20سحبة%20BIG%20BAR%2055K" target="_blank" class="btn-buy">
+                    <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
+                </a>
+            </div>
+
+            <!-- منتج سحبات BIG BAR - 2 -->
+            <div class="card" data-category="vape">
+                <img src="https://i.postimg.cc/tgNKDpV0/779084824-122174706314823117-6246257415192492295-n.jpg" alt="سحبات BIG BAR 55K">
+                <h3>سحبات فيب BIG BAR (55 ألف سحبة)</h3>
+                <div class="sub-desc">متوفر عدة نكهات رائعة للاستفسار عبر الواتساب</div>
+                <div class="price">45 ₪</div>
+                <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20سحبة%20BIG%20BAR%2055K" target="_blank" class="btn-buy">
+                    <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
+                </a>
+            </div>
+
+            <!-- منتج سحبات BIG BAR - 3 -->
+            <div class="card" data-category="vape">
+                <img src="https://i.postimg.cc/bv97Lp2c/779728919-122174706296823117-6693915218213443045-n.jpg" alt="سحبات BIG BAR 55K">
+                <h3>سحبات فيب BIG BAR (55 ألف سحبة)</h3>
+                <div class="sub-desc">متوفر عدة نكهات رائعة للاستفسار عبر الواتساب</div>
+                <div class="price">45 ₪</div>
+                <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20سحبة%20BIG%20BAR%2055K" target="_blank" class="btn-buy">
                     <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
                 </a>
             </div>
@@ -218,35 +274,3 @@
     </script>
 </body>
 </html>
-<!-- منتج سحبات BIG BAR - 1 -->
-<div class="card" data-category="vape">
-    <img src="https://i.postimg.cc/Fs1hRdkY/780619917-122174706326823117-6017991439337229590-n.jpg" alt="سحبات BIG BAR 55K">
-    <h3>سحبات فيب BIG BAR (55 ألف سحبة)</h3>
-    <div class="sub-desc">متوفر عدة نكهات رائعة للاستفسار عبر الواتساب</div>
-    <div class="price">45 ₪</div>
-    <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20سحبة%20BIG%20BAR%2055K" target="_blank" class="btn-buy">
-        <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
-    </a>
-</div>
-
-<!-- منتج سحبات BIG BAR - 2 -->
-<div class="card" data-category="vape">
-    <img src="https://i.postimg.cc/tgNKDpV0/779084824-122174706314823117-6246257415192492295-n.jpg" alt="سحبات BIG BAR 55K">
-    <h3>سحبات فيب BIG BAR (55 ألف سحبة)</h3>
-    <div class="sub-desc">متوفر عدة نكهات رائعة للاستفسار عبر الواتساب</div>
-    <div class="price">45 ₪</div>
-    <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20سحبة%20BIG%20BAR%2055K" target="_blank" class="btn-buy">
-        <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
-    </a>
-</div>
-
-<!-- منتج سحبات BIG BAR - 3 -->
-<div class="card" data-category="vape">
-    <img src="https://i.postimg.cc/bv97Lp2c/779728919-122174706296823117-6693915218213443045-n.jpg" alt="سحبات BIG BAR 55K">
-    <h3>سحبات فيب BIG BAR (55 ألف سحبة)</h3>
-    <div class="sub-desc">متوفر عدة نكهات رائعة للاستفسار عبر الواتساب</div>
-    <div class="price">45 ₪</div>
-    <a href="https://wa.me/970566228688?text=أرغب%20في%20طلب%20سحبة%20BIG%20BAR%2055K" target="_blank" class="btn-buy">
-        <i class="fa-solid fa-truck-fast"></i> <i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب
-    </a>
-</div>
